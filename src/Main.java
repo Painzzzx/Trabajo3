@@ -3,15 +3,15 @@
 import java.util.Scanner;
 
 public class Main {
-
+// acciones realizadas
     static String[] pilaPrincipal = new String[100];
     static int topePrincipal = -1;
 
-
+// acciones deshechas para rehacer
     static String[] pilaSecundaria = new String[100];
     static int topeSecundaria = -1;
 
-
+// operaciones pila principal
     static void pushPrincipal(String texto) {
         if (topePrincipal < pilaPrincipal.length - 1) {
             pilaPrincipal[++topePrincipal] = texto;
@@ -39,7 +39,7 @@ public class Main {
         return topePrincipal == -1;
     }
 
-
+// operaciones pila secundaria
     static void pushSecundaria(String texto) {
         if (topeSecundaria < pilaSecundaria.length - 1) {
             pilaSecundaria[++topeSecundaria] = texto;
@@ -53,7 +53,7 @@ public class Main {
         return null;
     }
 
-
+// programa principal
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -68,14 +68,14 @@ public class Main {
             System.out.println("5. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); //limpiar
 
             if (opcion == 1) {
                 System.out.print("Ingrese el texto: ");
                 texto = sc.nextLine();
                 pushPrincipal(texto);
                 System.out.println("Texto agregado.");
-
+                // limpia la pila secundaria
                 topeSecundaria = -1;
 
             } else if (opcion == 2) {
